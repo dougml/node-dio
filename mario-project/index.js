@@ -18,7 +18,7 @@ const player1 = {
     return Math.floor(Math.random() * 6) + 1;
   }
   
-  async function getRandomBlock() {
+  async function getRandomBlock() { 
     let random = Math.random();
     let result;
   
