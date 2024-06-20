@@ -1,0 +1,23 @@
+{
+  "name": "dio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dougml/node-dio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dougml/node-dio/issues"
+  },
+  "homepage": "https://github.com/dougml/node-dio#readme",
+  "dependencies": {
+    "@fastify/cors": "^9.0.1"
+  }
+}
