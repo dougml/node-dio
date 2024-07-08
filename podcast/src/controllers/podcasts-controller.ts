@@ -1,14 +1,38 @@
-import { IncomingMessage, ServerResponse, request} from 'http';
-
+import { IncomingMessage, ServerResponse } from 'http';
 import { sevicesListEpisodes } from '../services/list-episodes';
+import { serviceFilterEpisodes } from '../services/filter-episodes';
+import { StatusCode } from '../utils/status-code';
+
 
 export const getListEpisodes = async (
     req: IncomingMessage,
-     res: ServerResponse
-    ) => {
+    res: ServerResponse
+) => {
+    try {
+        const content = await sevicesListEpisodes();
 
-        const content: await sevicesListEpisodes(req, res)
+        res.writeHead(content.statusCode, {
+            "Content-Type": "application/json"
+        });
+        res.end(JSON.stringify(content.body));
+    } catch (error) {
+        res.writeHead(StatusCode.NOTFOUND, {
+            "Content-Type": "application/json"
+        });
+        res.end(JSON.stringify({ error: 'Internal Server Error' }));
+    }
+};
 
-    res.writeHead(200,{'Content-Type': "aplication/json"});
-    res.end(JSON.stringify(content))
+export const getFilterEpisodes = async (   req: IncomingMessage,
+    res: ServerResponse
+)=>{
+
+    const content = await serviceFilterEpisodes(req.url)
+    
+    res.writeHead(content.statusCode, {
+        "Content-Type": "application/json"
+    });
+
+    res.end(JSON.stringify(content.body));
 }
+

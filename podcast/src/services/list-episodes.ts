@@ -1,21 +1,18 @@
-
-
+import { FilterPodCastModel } from "../models/filter-podcast-model";
+import { repositoryPodcast } from "../repositories/podcast-repositories";
+import { StatusCode } from "../utils/status-code";
 
 export const sevicesListEpisodes = async ()=>{
-    const data = [
-            {
-                podcastName:"flow",
-                episode:"CBUM - Flow #319",
-                videoId:"pQSuQmUfS30",
-                category:["Saúde", "fitness"]
-            },
-            {
-                podcastName:"flow",
-                episode:"KIM KATAGUIRI - Flow #249",
-                videoId:"KrCNKG_cPKY",
-                category:["Politica", "Nerd"]
-            }
-            
-    ]
-    return data
+    let responseFormat : FilterPodCastModel = {
+        statusCode : 0,
+        body: []
+    }
+    
+    const data = await repositoryPodcast()
+
+    responseFormat.statusCode = data.length !== 0 ? StatusCode.OK : StatusCode.NOCONTENT
+    
+    responseFormat.body = data
+    
+    return responseFormat
 };

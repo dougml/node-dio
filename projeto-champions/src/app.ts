@@ -9,7 +9,7 @@ function createApp() {
   app.use("/api/v1", router);
 
   const corsOptions = {
-    origin: ["http://felipao.sistem.com", "http://gov.br"],
+    origin: ["http://doug.doug.com", "http://gov.br"],
     methods: ["GET", "UPDATE"],
   };
 

@@ -1,0 +1,20 @@
+[
+    {   
+        "podcastName":"flow",
+        "episode":"CBUM - Flow #319",
+        "videoId":"pQSuQmUfS30",
+        "category":["Saúde", "fitness"]
+    },
+    {
+        "podcastName":"flow",
+        "episode":"KIM KATAGUIRI - Flow #249",
+        "videoId":"KrCNKG_cPKY",
+        "category":["Politica", "Nerd"]
+    },
+    {
+        "podcastName":"Venus",
+        "episode":"Sabrina",
+        "videoId":"f4d5sF4sdf",
+        "category":["Humor", "RH"]
+    }
+]
